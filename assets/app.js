@@ -14,9 +14,9 @@ document.querySelector('[data-year]').textContent = new Date().getFullYear();
 
 const socialLinks = document.querySelector('[data-social-links]');
 [
-  { name: locale === 'es' ? 'Correo' : 'Email', href: `mailto:${portfolioContent.email}`, icon: 'https://cdn.jsdelivr.net/npm/lucide-static@0.468.0/icons/mail.svg', className: 'social-email' },
-  { name: 'LinkedIn', href: portfolioContent.links.linkedin, icon: 'https://cdn.simpleicons.org/linkedin/0A66C2', className: 'social-linkedin' },
-  { name: 'GitHub', href: portfolioContent.links.github, icon: 'https://cdn.simpleicons.org/github/E7EDF5', className: 'social-github' },
+  { name: locale === 'es' ? 'Correo' : 'Email', href: '#contact', icon: '../assets/logos/mail.svg', className: 'social-email' },
+  { name: 'LinkedIn', href: portfolioContent.links.linkedin, icon: '../assets/logos/linkedin.svg', className: 'social-linkedin' },
+  { name: 'GitHub', href: portfolioContent.links.github, icon: '../assets/logos/github.svg', className: 'social-github' },
 ].forEach(({ name, href, icon, className }) => {
   const link = create('a', `social-icon ${className}`);
   link.href = href;
@@ -27,12 +27,9 @@ const socialLinks = document.querySelector('[data-social-links]');
   image.alt = '';
   image.setAttribute('aria-hidden', 'true');
   link.append(image);
-  if (!href.startsWith('mailto:')) { link.target = '_blank'; link.rel = 'noreferrer'; }
+  if (href.startsWith('http')) { link.target = '_blank'; link.rel = 'noreferrer'; }
   socialLinks.append(link);
 });
-
-const emailLink = document.querySelector('[data-email-link]');
-if (emailLink) emailLink.href = `mailto:${portfolioContent.email}`;
 
 const experienceRoot = document.querySelector('[data-experience]');
 if (portfolioContent.experience.length === 0) {
@@ -89,13 +86,19 @@ portfolioContent.skills.forEach((group) => {
     entry.append(icon, create('span', 'skill-name', skill.label));
     list.append(entry);
   });
-  block.append(create('h3', '', group.label[locale]), list); skillsRoot.append(block);
+  if (group.label) block.append(create('h3', '', group.label[locale]));
+  block.append(list); skillsRoot.append(block);
 });
 
 const contactForm = document.querySelector('[data-contact-form]');
 const contactModal = document.querySelector('[data-contact-modal]');
 
 if (contactForm && contactModal) {
+  const formStatus = contactForm.querySelector('[data-form-status]');
+  const submitButton = contactForm.querySelector('[data-form-submit]');
+  const formMessages = locale === 'es'
+    ? { sending: 'Enviando mensaje…', error: 'No fue posible enviar el mensaje. Inténtalo de nuevo.' }
+    : { sending: 'Sending message…', error: 'Your message could not be sent. Please try again.' };
   const supportsNativeDialog = typeof contactModal.showModal === 'function' && typeof contactModal.close === 'function';
   const openModal = () => {
     if (supportsNativeDialog) contactModal.showModal();
@@ -109,13 +112,41 @@ if (contactForm && contactModal) {
     }
   };
 
-  contactForm.addEventListener('submit', (event) => {
+  contactForm.addEventListener('submit', async (event) => {
     event.preventDefault();
     if (!contactForm.checkValidity()) {
       contactForm.reportValidity();
       return;
     }
-    openModal();
+    if (formStatus) {
+      formStatus.textContent = formMessages.sending;
+      formStatus.dataset.state = 'sending';
+    }
+    if (submitButton) submitButton.disabled = true;
+    contactForm.setAttribute('aria-busy', 'true');
+
+    try {
+      const response = await fetch(contactForm.action, {
+        method: 'POST',
+        body: new FormData(contactForm),
+        headers: { Accept: 'application/json' },
+      });
+      if (!response.ok) throw new Error('Form submission failed');
+      contactForm.reset();
+      if (formStatus) {
+        formStatus.textContent = '';
+        delete formStatus.dataset.state;
+      }
+      openModal();
+    } catch {
+      if (formStatus) {
+        formStatus.textContent = formMessages.error;
+        formStatus.dataset.state = 'error';
+      }
+    } finally {
+      if (submitButton) submitButton.disabled = false;
+      contactForm.removeAttribute('aria-busy');
+    }
   });
 
   contactModal.querySelectorAll('[data-modal-close]').forEach((button) => {

@@ -3,6 +3,10 @@
   --control-radius: .42rem;
 }
 
+body {
+  background: var(--paper);
+}
+
 .site-header {
   position: sticky;
   top: 0;
@@ -26,6 +30,35 @@
   gap: 1rem;
 }
 
+.content-wrap {
+  width: min(calc(100% - 3rem), 760px);
+}
+
+.section {
+  padding-block: 5.5rem;
+}
+
+.section-heading {
+  text-align: center;
+}
+
+.section-intro {
+  margin-inline: auto;
+}
+
+.section-content {
+  width: min(100%, 640px);
+  margin-inline: auto;
+}
+
+.about-copy,
+.about-detail,
+.experience-list,
+.projects-grid {
+  max-width: 62ch;
+  margin-inline: auto;
+}
+
 .social-links {
   gap: .8rem;
 }
@@ -34,21 +67,22 @@
   position: relative;
   display: grid;
   place-items: center;
-  width: 2.65rem;
-  height: 2.65rem;
-  border: 1px solid rgba(148, 163, 184, .35);
-  border-radius: 50%;
-  background: rgba(13, 22, 40, .55);
-  transition: color .18s ease, background-color .18s ease, border-color .18s ease, box-shadow .18s ease, transform .18s ease;
+  width: 2rem;
+  height: 2rem;
+  transition: filter .18s ease, transform .18s ease;
 }
 
 .social-links .social-icon img {
-  width: 1.2rem;
-  height: 1.2rem;
+  width: 1.5rem;
+  height: 1.5rem;
   object-fit: contain;
 }
 
 .social-links .social-email img {
+  filter: invert(82%) sepia(57%) saturate(464%) hue-rotate(161deg) brightness(101%) contrast(102%);
+}
+
+.social-links .social-linkedin img {
   filter: invert(82%) sepia(57%) saturate(464%) hue-rotate(161deg) brightness(101%) contrast(102%);
 }
 
@@ -74,10 +108,7 @@
 
 .social-links .social-icon:hover,
 .social-links .social-icon:focus-visible {
-  border-color: var(--accent);
-  background: rgba(105, 210, 255, .1);
-  box-shadow: 0 0 0 4px rgba(105, 210, 255, .1), 0 .65rem 1.4rem rgba(0, 0, 0, .2);
-  color: var(--accent);
+  filter: drop-shadow(0 0 7px rgba(105, 210, 255, .42));
   outline: none;
   transform: translateY(-3px);
 }
@@ -100,6 +131,15 @@
 .skill-group:first-child,
 .skill-group:last-child {
   border: 0;
+}
+
+#skills .skills-grid {
+  display: block;
+  width: 100%;
+}
+
+#skills .skill-group {
+  padding: 0;
 }
 
 .main-nav { gap: .35rem; }
@@ -188,6 +228,24 @@ button,
 .form-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 1rem; margin-top: .25rem; }
 .form-actions p { margin: 0; color: var(--faint); font-size: .78rem; }
 
+.form-status {
+  min-height: 1.3rem;
+  margin: -.5rem 0 0;
+  color: var(--muted);
+  font-size: .82rem;
+}
+
+.form-status[data-state="error"] { color: #ff9aa8; }
+
+.form-honeypot {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
 .contact-modal {
   width: min(calc(100% - 2rem), 520px);
   border: 1px solid rgba(105, 210, 255, .34);
@@ -214,8 +272,25 @@ button,
   display: none;
 }
 
+.hero-portrait img {
+  border-radius: var(--control-radius);
+}
+
+.hero-portrait::before {
+  display: none;
+}
+
+.hero-portrait img {
+  object-position: center;
+}
+
+.hero-portrait {
+  width: 90%;
+  justify-self: center;
+}
+
 .skill-group ul {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: .75rem;
 }
 
@@ -255,6 +330,15 @@ button,
   filter: brightness(0) saturate(100%) invert(42%) sepia(66%) saturate(589%) hue-rotate(166deg) brightness(87%) contrast(88%);
 }
 
+.skill-icon--arduino img {
+  filter: brightness(0) saturate(100%) invert(43%) sepia(86%) saturate(701%) hue-rotate(140deg) brightness(89%) contrast(101%);
+}
+
+.skill-icon--raspberry-pi img,
+.skill-icon--debian img {
+  filter: brightness(0) saturate(100%) invert(34%) sepia(93%) saturate(1442%) hue-rotate(306deg) brightness(94%) contrast(87%);
+}
+
 .skill-icon--pic {
   overflow: visible;
 }
@@ -289,6 +373,8 @@ button,
 
 @media (max-width: 720px) {
   .hero { grid-template-columns: 1fr; }
+
+  .hero-portrait { width: min(67.5%, 297px); margin-inline: auto; }
 
   .skill-group ul { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }

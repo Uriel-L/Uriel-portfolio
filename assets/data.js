@@ -1,8 +1,7 @@
 // Edit this one file to update your personal information, projects, and skills.
 const portfolio = {
   name: 'Uriel Lomelí',
-  email: 'tu-correo@ejemplo.com',
-  links: { github: 'https://github.com/your-username', linkedin: 'https://www.linkedin.com/in/your-profile/' },
+  links: { github: 'https://github.com/Uriel-L', linkedin: 'https://www.linkedin.com/in/your-profile/' },
   experience: [
     {
       period: 'Ingeniería de producto · Plataformas de manufactura',
@@ -60,42 +59,20 @@ const portfolio = {
     },
   ],
   skills: [
-    { label: { es: 'Sistemas embebidos', en: 'Embedded systems' }, items: [
-      { label: 'C', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/c/c-original.svg' },
-      { label: 'C++', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/cplusplus/cplusplus-original.svg' },
-      { label: 'Python', icon: 'https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg' },
-      { label: 'ESP32', icon: 'https://cdn.simpleicons.org/espressif' },
-      { label: 'STM32', icon: 'https://cdn.simpleicons.org/stmicroelectronics', iconClass: 'skill-icon--stm32' },
-      { label: 'Microchip', icon: 'https://companieslogo.com/img/orig/MCHP-a814c0cc.svg', iconClass: 'skill-icon--pic' },
-      { label: 'CAN · J1939 · OBD-II', icon: 'https://cdn.jsdelivr.net/npm/lucide-static@0.468.0/icons/network.svg' },
-      { label: 'UART · SPI · I²C', icon: 'https://cdn.jsdelivr.net/npm/lucide-static@0.468.0/icons/radio.svg' },
+    { items: [
+      { label: 'C', icon: '../assets/logos/c.svg' },
+      { label: 'C++', icon: '../assets/logos/cplusplus.svg' },
+      { label: 'Python', icon: '../assets/logos/python.svg' },
+      { label: 'Linux', icon: '../assets/logos/linux.svg' },
+      { label: 'ESP32', icon: '../assets/logos/espressif.svg' },
+      { label: 'STM32', icon: '../assets/logos/stmicroelectronics.svg', iconClass: 'skill-icon--stm32' },
+      { label: 'Microchip', icon: '../assets/logos/microchip.svg', iconClass: 'skill-icon--pic' },
+      { label: 'Arduino', icon: '../assets/logos/arduino.svg', iconClass: 'skill-icon--arduino' },
+      { label: 'Git', icon: '../assets/logos/git.svg' },
+      { label: 'GitHub', icon: '../assets/logos/github.svg' },
+      { label: 'Raspberry Pi', icon: '../assets/logos/raspberrypi.svg', iconClass: 'skill-icon--raspberry-pi' },
+      { label: 'KiCad', icon: '../assets/logos/kicad.svg' },
     ] },
-    { label: { es: 'Electrónica y validación', en: 'Electronics & validation' }, items: { es: [
-      { label: 'Diseño analógico y digital', icon: 'https://cdn.jsdelivr.net/npm/lucide-static@0.468.0/icons/circuit-board.svg' },
-      { label: 'Diseño de PCB con KiCad', icon: 'https://commons.wikimedia.org/wiki/Special:FilePath/KiCad-Logo.svg' },
-      { label: 'Validación de equipos y programas internos', icon: 'https://cdn.jsdelivr.net/npm/lucide-static@0.468.0/icons/badge-check.svg' },
-      { label: 'Linux y pruebas de esfuerzo', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/linux/linux-original.svg' },
-      { label: 'Depuración y análisis de causa raíz', icon: 'https://cdn.jsdelivr.net/npm/lucide-static@0.468.0/icons/search-check.svg' },
-    ], en: [
-      { label: 'Analog and digital design', icon: 'https://cdn.jsdelivr.net/npm/lucide-static@0.468.0/icons/circuit-board.svg' },
-      { label: 'PCB design with KiCad', icon: 'https://commons.wikimedia.org/wiki/Special:FilePath/KiCad-Logo.svg' },
-      { label: 'Hardware and firmware validation', icon: 'https://cdn.jsdelivr.net/npm/lucide-static@0.468.0/icons/badge-check.svg' },
-      { label: 'Linux and stress testing', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/linux/linux-original.svg' },
-      { label: 'Debugging and root-cause analysis', icon: 'https://cdn.jsdelivr.net/npm/lucide-static@0.468.0/icons/search-check.svg' },
-    ] } },
-    { label: { es: 'Automatización e ingeniería', en: 'Automation & engineering' }, items: { es: [
-      { label: 'PLC y lógica de escalera', icon: 'https://cdn.jsdelivr.net/npm/lucide-static@0.468.0/icons/workflow.svg' },
-      { label: 'Sistemas neumáticos', icon: 'https://cdn.jsdelivr.net/npm/lucide-static@0.468.0/icons/wind.svg' },
-      { label: 'Diagramas eléctricos', icon: 'https://cdn.jsdelivr.net/npm/lucide-static@0.468.0/icons/route.svg' },
-      { label: 'Bancos de prueba y herramientas de ingeniería', icon: 'https://cdn.jsdelivr.net/npm/lucide-static@0.468.0/icons/flask-conical.svg' },
-      { label: 'Git y documentación técnica', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/git/git-original.svg' },
-    ], en: [
-      { label: 'PLCs and Ladder logic', icon: 'https://cdn.jsdelivr.net/npm/lucide-static@0.468.0/icons/workflow.svg' },
-      { label: 'Pneumatic systems', icon: 'https://cdn.jsdelivr.net/npm/lucide-static@0.468.0/icons/wind.svg' },
-      { label: 'Electrical diagrams', icon: 'https://cdn.jsdelivr.net/npm/lucide-static@0.468.0/icons/route.svg' },
-      { label: 'Test benches and tooling', icon: 'https://cdn.jsdelivr.net/npm/lucide-static@0.468.0/icons/flask-conical.svg' },
-      { label: 'Git and engineering documentation', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/git/git-original.svg' },
-    ] } },
   ],
   projects: [
     { title: 'Proyecto destacado 01', technologies: ['TypeScript', 'React', 'CSS'], repository: 'https://github.com/your-username/project-one', demo: '', es: { summary: 'Una aplicación web para simplificar una tarea cotidiana y ofrecer una experiencia rápida y accesible.', challenge: 'Organizar información compleja sin aumentar la carga cognitiva de las personas usuarias.', outcome: 'Una interfaz clara, adaptable a móviles y preparada para crecer con nuevas funcionalidades.' }, en: { summary: 'A web application that simplifies an everyday task with a fast, accessible experience.', challenge: 'Organize complex information without increasing cognitive load for users.', outcome: 'A clear, mobile-friendly interface ready to grow with new functionality.' } },
