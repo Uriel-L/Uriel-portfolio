@@ -1,7 +1,7 @@
 // Edit this one file to update your personal information, projects, and skills.
 const portfolio = {
   name: 'Uriel Lomelí',
-  links: { github: 'https://github.com/Uriel-L', linkedin: 'https://www.linkedin.com/in/your-profile/' },
+  links: { github: 'https://github.com/Uriel-L', linkedin: 'https://www.linkedin.com/in/uriel-lome%C3%AD-21a811426/' },
   experience: [
     {
       period: 'Ingeniería de producto · Plataformas de manufactura',
