@@ -5,6 +5,28 @@
 
 body {
   background: var(--paper);
+  overflow-x: clip;
+}
+
+html {
+  overflow-x: clip;
+}
+
+.site-header,
+.site-footer,
+.hero,
+.content-wrap {
+  max-width: calc(100% - 3rem);
+}
+
+.hero-copy,
+.hero h1 {
+  min-width: 0;
+}
+
+.hero h1 {
+  max-width: 100%;
+  overflow-wrap: anywhere;
 }
 
 .site-header {
@@ -16,7 +38,7 @@ body {
 }
 
 .section {
-  scroll-margin-top: 6.5rem;
+  scroll-margin-top: 5.6rem;
 }
 
 .site-header,
@@ -35,7 +57,7 @@ body {
 }
 
 .section {
-  padding-block: 5.5rem;
+  padding-block: 1.75rem 3.75rem;
 }
 
 .section-heading {
@@ -264,7 +286,23 @@ button,
 .modal-close:hover,.modal-close:focus-visible { border-color: var(--accent); color: var(--accent); outline: none; }
 
 .hero {
-  grid-template-columns: minmax(0, 1.15fr) minmax(260px, .55fr);
+  grid-template-columns: minmax(0, 640px);
+  justify-content: center;
+  min-height: auto;
+  gap: 2rem;
+  padding-block: 1.5rem 4rem;
+}
+
+.hero-copy {
+  width: 100%;
+}
+
+.hero-copy--intro h1 {
+  margin-bottom: 1.35rem;
+}
+
+.hero-copy--details {
+  padding-bottom: 1rem;
 }
 
 .hero-portrait figcaption,
@@ -285,8 +323,34 @@ button,
 }
 
 .hero-portrait {
-  width: 90%;
+  width: min(72%, 420px);
   justify-self: center;
+}
+
+.hero-description--lead {
+  margin-bottom: 1rem;
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.hero-description--detail {
+  margin-bottom: 1.25rem;
+  font-size: clamp(.98rem, 1.7vw, 1.12rem);
+}
+
+.hero-technologies {
+  max-width: 590px;
+  margin-bottom: 0;
+  color: var(--accent);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: .79rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  line-height: 1.8;
+}
+
+.hero-technologies span {
+  color: var(--faint);
 }
 
 .skill-group ul {
@@ -366,10 +430,6 @@ button,
 }
 
 .skill-item:hover .skill-name { color: var(--ink); }
-
-@media (max-width: 850px) {
-  .hero { grid-template-columns: minmax(0, 1fr) minmax(210px, .55fr); }
-}
 
 @media (max-width: 720px) {
   .hero { grid-template-columns: 1fr; }
