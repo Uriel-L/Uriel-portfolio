@@ -4,7 +4,7 @@ const portfolio = {
   links: { github: 'https://github.com/Uriel-L', linkedin: 'https://www.linkedin.com/in/uriel-lome%C3%AD-21a811426/' },
   experience: [
     {
-      period: 'Ingeniería de producto · Plataformas de manufactura',
+      period: { es: 'Ingeniería de producto · Plataformas de manufactura', en: 'Product engineering · Manufacturing platforms' },
       role: { es: 'Ingeniero sénior de producto', en: 'Senior Product Engineer' },
       company: 'Wiwynn',
       description: {
@@ -13,7 +13,7 @@ const portfolio = {
       },
     },
     {
-      period: 'Internet de las cosas automotriz · Validación de sistemas embebidos',
+      period: { es: 'Internet de las cosas automotriz · Validación de sistemas embebidos', en: 'Automotive IoT · Embedded systems validation' },
       role: { es: 'Ingeniero sénior de sistemas embebidos', en: 'Senior Embedded Systems Engineer' },
       company: 'Deloitte / Dextra Technologies',
       description: {
@@ -22,7 +22,7 @@ const portfolio = {
       },
     },
     {
-      period: 'Equipos empresariales · Confiabilidad de plataformas',
+      period: { es: 'Equipos empresariales · Confiabilidad de plataformas', en: 'Enterprise systems · Platform reliability' },
       role: { es: 'Ingeniero de validación de equipos electrónicos', en: 'Hardware Validation Engineer' },
       company: 'IBM',
       description: {
@@ -31,7 +31,7 @@ const portfolio = {
       },
     },
     {
-      period: 'Automatización industrial · Manufactura automotriz',
+      period: { es: 'Automatización industrial · Manufactura automotriz', en: 'Industrial automation · Automotive manufacturing' },
       role: { es: 'Ingeniero de automatización', en: 'Automation Engineer' },
       company: 'Montaño Industrial',
       description: {
@@ -40,7 +40,7 @@ const portfolio = {
       },
     },
     {
-      period: 'Educación en electrónica · Mentoría técnica',
+      period: { es: 'Educación en electrónica · Mentoría técnica', en: 'Electronics education · Technical mentoring' },
       role: { es: 'Profesor universitario', en: 'University Lecturer' },
       company: 'Universidad Politécnica de Sinaloa',
       description: {
@@ -49,7 +49,7 @@ const portfolio = {
       },
     },
     {
-      period: 'Base práctica en ingeniería',
+      period: { es: 'Base práctica en ingeniería', en: 'Hands-on engineering foundation' },
       role: { es: 'Técnico en electrónica', en: 'Electronics Technician' },
       company: 'Taller independiente de electrónica',
       description: {
@@ -75,8 +75,8 @@ const portfolio = {
     ] },
   ],
   projects: [
-    { title: 'Proyecto destacado 01', technologies: ['TypeScript', 'React', 'CSS'], repository: 'https://github.com/your-username/project-one', demo: '', es: { summary: 'Una aplicación web para simplificar una tarea cotidiana y ofrecer una experiencia rápida y accesible.', challenge: 'Organizar información compleja sin aumentar la carga cognitiva de las personas usuarias.', outcome: 'Una interfaz clara, adaptable a móviles y preparada para crecer con nuevas funcionalidades.' }, en: { summary: 'A web application that simplifies an everyday task with a fast, accessible experience.', challenge: 'Organize complex information without increasing cognitive load for users.', outcome: 'A clear, mobile-friendly interface ready to grow with new functionality.' } },
-    { title: 'Proyecto destacado 02', technologies: ['Node.js', 'API REST', 'PostgreSQL'], repository: 'https://github.com/your-username/project-two', demo: '', es: { summary: 'Un servicio enfocado en automatizar procesos y presentar datos útiles para la toma de decisiones.', challenge: 'Reducir pasos manuales y mantener información consistente entre distintas partes del sistema.', outcome: 'Un flujo más eficiente, documentado y fácil de mantener por el equipo.' }, en: { summary: 'A service focused on automating processes and surfacing useful data for decision-making.', challenge: 'Reduce manual steps while keeping data consistent across different parts of the system.', outcome: 'A more efficient, documented flow that is easy for a team to maintain.' } },
+    { title: { es: 'Proyecto destacado 01', en: 'Featured project 01' }, technologies: ['TypeScript', 'React', 'CSS'], repository: 'https://github.com/your-username/project-one', demo: '', es: { summary: 'Una aplicación web para simplificar una tarea cotidiana y ofrecer una experiencia rápida y accesible.', challenge: 'Organizar información compleja sin aumentar la carga cognitiva de las personas usuarias.', outcome: 'Una interfaz clara, adaptable a móviles y preparada para crecer con nuevas funcionalidades.' }, en: { summary: 'A web application that simplifies an everyday task with a fast, accessible experience.', challenge: 'Organize complex information without increasing cognitive load for users.', outcome: 'A clear, mobile-friendly interface ready to grow with new functionality.' } },
+    { title: { es: 'Proyecto destacado 02', en: 'Featured project 02' }, technologies: ['Node.js', 'API REST', 'PostgreSQL'], repository: 'https://github.com/your-username/project-two', demo: '', es: { summary: 'Un servicio enfocado en automatizar procesos y presentar datos útiles para la toma de decisiones.', challenge: 'Reducir pasos manuales y mantener información consistente entre distintas partes del sistema.', outcome: 'Un flujo más eficiente, documentado y fácil de mantener por el equipo.' }, en: { summary: 'A service focused on automating processes and surfacing useful data for decision-making.', challenge: 'Reduce manual steps while keeping data consistent across different parts of the system.', outcome: 'A more efficient, documented flow that is easy for a team to maintain.' } },
   ],
 };
 

@@ -38,7 +38,7 @@ if (portfolioContent.experience.length === 0) {
   const list = create('ol', 'experience-list');
   portfolioContent.experience.forEach((item) => {
     const entry = document.createElement('li');
-    entry.append(create('p', 'experience-period', item.period));
+    entry.append(create('p', 'experience-period', item.period[locale]));
     const content = document.createElement('div');
     content.append(create('h3', '', `${item.role[locale]} · ${item.company}`), create('p', '', item.description[locale]));
     entry.append(content); list.append(entry);
@@ -50,7 +50,7 @@ const projectsRoot = document.querySelector('[data-projects]');
 portfolioContent.projects.forEach((project) => {
   const card = create('article', 'project-card');
   const content = create('div', 'project-content');
-  content.append(create('h3', '', project.title), create('p', 'project-summary', project[locale].summary));
+  content.append(create('h3', '', project.title[locale]), create('p', 'project-summary', project[locale].summary));
   const details = create('dl', 'project-details');
   [[text.challenge, project[locale].challenge], [text.outcome, project[locale].outcome]].forEach(([title, description]) => {
     const row = document.createElement('div'); row.append(create('dt', '', title), create('dd', '', description)); details.append(row);
