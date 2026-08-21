@@ -60,11 +60,14 @@ portfolioContent.projects.forEach((project) => {
     const item = typeof technology === 'string' ? { label: technology } : technology;
     const tag = create('li', 'project-technology');
     if (item.icon) {
+      const iconShell = create('span', 'project-technology-icon');
+      if (item.iconClass) iconShell.classList.add(item.iconClass);
       const icon = document.createElement('img');
       icon.src = item.icon;
       icon.alt = '';
       icon.setAttribute('aria-hidden', 'true');
-      tag.append(icon);
+      iconShell.append(icon);
+      tag.append(iconShell);
     }
     tag.append(create('span', '', item.label));
     tags.append(tag);
