@@ -51,6 +51,19 @@ portfolioContent.projects.forEach((project) => {
   const card = create('article', 'project-card');
   const content = create('div', 'project-content');
   content.append(create('h3', '', project.title[locale]), create('p', 'project-summary', project[locale].summary));
+  if (project.screenshots?.length) {
+    const gallery = create('div', 'project-gallery');
+    project.screenshots.forEach((screenshot) => {
+      const figure = create('figure', 'project-thumbnail');
+      const image = document.createElement('img');
+      image.src = screenshot.src;
+      image.alt = screenshot.alt[locale];
+      image.loading = 'lazy';
+      figure.append(image);
+      gallery.append(figure);
+    });
+    content.append(gallery);
+  }
   const details = create('dl', 'project-details');
   [[text.challenge, project[locale].challenge], [text.outcome, project[locale].outcome]].forEach(([title, description]) => {
     const row = document.createElement('div'); row.append(create('dt', '', title), create('dd', '', description)); details.append(row);
