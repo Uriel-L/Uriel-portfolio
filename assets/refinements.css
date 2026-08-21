@@ -384,6 +384,11 @@ button,
   margin: 1.35rem 0 0;
 }
 
+.project-gallery--single {
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 16rem;
+}
+
 .project-thumbnail {
   display: grid;
   place-items: center;

@@ -53,6 +53,7 @@ portfolioContent.projects.forEach((project) => {
   content.append(create('h3', '', project.title[locale]), create('p', 'project-summary', project[locale].summary));
   if (project.screenshots?.length) {
     const gallery = create('div', 'project-gallery');
+    if (project.screenshots.length === 1) gallery.classList.add('project-gallery--single');
     project.screenshots.forEach((screenshot) => {
       const figure = create('figure', 'project-thumbnail');
       const image = document.createElement('img');
@@ -82,7 +83,7 @@ portfolioContent.projects.forEach((project) => {
       iconShell.append(icon);
       tag.append(iconShell);
     }
-    tag.append(create('span', '', item.label));
+    tag.append(create('span', '', typeof item.label === 'string' ? item.label : item.label[locale]));
     tags.append(tag);
   });
   content.append(details, tags);
