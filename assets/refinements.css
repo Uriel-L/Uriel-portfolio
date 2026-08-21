@@ -353,6 +353,18 @@ button,
   color: var(--faint);
 }
 
+.project-technology {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+}
+
+.project-technology img {
+  width: 1rem;
+  height: 1rem;
+  object-fit: contain;
+}
+
 .skill-group ul {
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: .75rem;

@@ -56,7 +56,19 @@ portfolioContent.projects.forEach((project) => {
     const row = document.createElement('div'); row.append(create('dt', '', title), create('dd', '', description)); details.append(row);
   });
   const tags = create('ul', 'tag-list');
-  project.technologies.forEach((technology) => tags.append(create('li', '', technology)));
+  project.technologies.forEach((technology) => {
+    const item = typeof technology === 'string' ? { label: technology } : technology;
+    const tag = create('li', 'project-technology');
+    if (item.icon) {
+      const icon = document.createElement('img');
+      icon.src = item.icon;
+      icon.alt = '';
+      icon.setAttribute('aria-hidden', 'true');
+      tag.append(icon);
+    }
+    tag.append(create('span', '', item.label));
+    tags.append(tag);
+  });
   content.append(details, tags);
   const links = create('p', 'project-links');
   [[text.repository, project.repository], [text.demo, project.demo]].filter(([, href]) => href).forEach(([name, href]) => {
